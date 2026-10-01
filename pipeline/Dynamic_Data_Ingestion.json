@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1_copy1",
+	"name": "Dynamic_Data_Ingestion",
 	"properties": {
 		"activities": [
 			{
