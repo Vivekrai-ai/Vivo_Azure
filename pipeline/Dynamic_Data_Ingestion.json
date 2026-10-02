@@ -312,6 +312,62 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "Alert Generation - SUCCESS",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-02.northcentralus.logic.azure.com:443/workflows/b6b8c1d973214ea7a6ced2891817ae48/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=nN9oUtlSvGYI09wBmyg4N0je6y68J3RS0TLBsGtlT9o",
+					"body": {
+						"value": "{\n    \"Pipeline_Name\":\"@{pipeline().Pipeline}\",\n    \"Run_Id\": \"@{pipeline().RunId}\",\n    \"Status\": \"Success\"\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Alert Generation- Failed",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-02.northcentralus.logic.azure.com:443/workflows/b6b8c1d973214ea7a6ced2891817ae48/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=nN9oUtlSvGYI09wBmyg4N0je6y68J3RS0TLBsGtlT9o",
+					"body": {
+						"value": "{\n    \"Pipeline_Name\":\"@{pipeline().Pipeline}\",\n    \"Run_Id\": \"@{pipeline().RunId}\",\n    \"Status\": \"Success\"\n}",
+						"type": "Expression"
+					}
+				}
 			}
 		],
 		"parameters": {
