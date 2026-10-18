@@ -377,14 +377,14 @@
 					{
 						"Schema": "dbo",
 						"table": "DimUser",
-						"Column_dt": "updated_at",
+						"Column_dt": "updaomted_at",
 						"From_Date": ""
 					},
 					{
 						"Schema": "dbo",
 						"table": "DimArtist",
 						"Column_dt": "updated_at",
-						"From_Date": ""
+						"Fr_Date": ""
 					},
 					{
 						"Schema": "dbo",
